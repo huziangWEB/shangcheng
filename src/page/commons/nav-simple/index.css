@@ -1,0 +1,17 @@
+/*
+* @Author: huziangWEB
+* @Date:   2019-01-20 16:12:23
+* @Last Modified by:   huziangWEB
+* @Last Modified time: 2019-01-20 16:16:03
+*/
+.nav-simple{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px #ddd solid;
+	background: #fff;
+}
+.nav-simple .logo{
+	font-size: 26px;
+	font-weight: bold;
+	color: #c60023;
+}

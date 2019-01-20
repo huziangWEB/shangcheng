@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebapckPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 const getHtmlConfig = function(name){
@@ -32,6 +32,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			util: __dirname + '/src/util',
+			node_modules: __dirname + '/node_modules',
 			page: __dirname + '/src/page',
 			service: __dirname + '/src/service',
 			image: __dirname + '/src/image'
@@ -42,7 +43,18 @@ module.exports = {
 		new HtmlWebpackPlugin(getHtmlConfig('index')),
 		new HtmlWebpackPlugin(getHtmlConfig('login')),
 		new CleanWebapckPlugin(['dist']),
-		new ExtractTextPlugin("css/[name].css")
+		new MiniCssExtractPlugin({
+	      // Options similar to the same options in webpackOptions.output
+	      // both options are optional
+	      filename: "[name].css",
+	      chunkFilename: "css/[name].css"
+
+
+	      // Options similar to the same options in webpackOptions.output
+	      // both options are optional
+	      // filename: devMode ? '[name].css' : '[name].[hash].css',
+	      // chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+	    })
 	],
 	// optimization: {
  //        splitChunks: {
@@ -73,7 +85,7 @@ module.exports = {
 	                  priority: 10,
 	                  enforce: true
 	              },
-	              commons: { // split `common`和`components`目录下被打包的代码到`page/commons.js && .css`
+	              common: { // split `common`和`components`目录下被打包的代码到`page/commons.js && .css`
 	                  
 	                  name: 'base',
 	                  priority: 10,
@@ -89,10 +101,17 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-		          fallback: "style-loader",
-		          use: "css-loader"
-		        })
+				use: [
+		          {
+		            loader: MiniCssExtractPlugin.loader,
+		            options: {
+		              // you can specify a publicPath here
+		              // by default it use publicPath in webpackOptions.output
+		              publicPath: '../'
+		            }
+		          },
+		          "css-loader"
+		        ]
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,

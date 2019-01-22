@@ -1,0 +1,24 @@
+/*
+* @Author: huziangWEB
+* @Date:   2019-01-22 19:22:38
+* @Last Modified by:   huziangWEB
+* @Last Modified time: 2019-01-22 21:33:10
+*/
+.nav-side{
+	float:left;
+	width: 130px;
+}
+.nav-side .nav-item{
+	line-height: 25px;
+	font-size: 14px;
+}
+.nav-side .nav-item .link{
+	color: #888;
+}
+.nav-side .nav-item.active .link{
+	color: #c60023;
+}
+.concent.with-nav{
+	float: left;
+	width: 950px;
+}

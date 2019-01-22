@@ -136,6 +136,11 @@ module.exports = {
 				use: [
 					'xml-loader'
 				]
+			},{
+				test: /\.string$/,
+				use: [
+					'html-loader'
+				]
 			}
 		]
 	}

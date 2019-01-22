@@ -1,0 +1,34 @@
+/*
+* @Author: huziangWEB
+* @Date:   2019-01-20 16:50:22
+* @Last Modified by:   huziangWEB
+* @Last Modified time: 2019-01-22 19:12:09
+*/
+.header .logo{
+	position: absolute;
+	font-size: 36px;
+	display: block;
+	color: #c60023;
+	font-weight: bold;
+	text-decoration: none;
+	left: 20px;
+	top: 36px;
+}
+.header .search-con{
+	padding: 40px 0 30px 250px;
+}
+.header .search-con .search-input{
+	width: 550px;
+	height: 45px;
+	line-height: 45px;
+	text-indent: 10px;
+	font-size: 15px;
+	border:2px #c60023 solid;
+	outline: none;
+}
+.header .search-con .search-btn{
+	width: 80px;
+	height: 49px;
+	position: absolute;
+	font-weight: normal;
+}

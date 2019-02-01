@@ -4,22 +4,29 @@ const CleanWebapckPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
-const getHtmlConfig = function(name){
+const getHtmlConfig = function(name, title){
 	return  {
 				template: './src/view/' + name + '.html',
 				filename: 'view/' + name + '.html',
+				title: title,
 				inject: true,
 				hash: true,
-				chunks: ['base', 'common', name]
+				chunks: ['commons', name]
 			}
 };
 
 
 module.exports = {
 	entry: {
-		common: './src/page/commons/index.js',
-		index: './src/page/index/index.js',
-		login: './src/page/login/index.js'
+		'commons': './src/page/commons/index.js',
+		'index': './src/page/index/index.js',
+		'user-login': './src/page/user-login/index.js',
+		'user-register': './src/page/user-register/index.js',
+		'user-pass-reset': './src/page/user-pass-reset/index.js',
+		'result': './src/page/result/index.js',
+		'user-center': './src/page/user-center/index.js',
+		'user-center-update': './src/page/user-center-update/index.js',
+		'user-pass-update': './src/page/user-pass-update/index.js'
 	},
 	devtool: 'inline-source-map',
 	devServer: {
@@ -40,63 +47,42 @@ module.exports = {
 	},
 	mode: "production",
 	plugins: [
-		new HtmlWebpackPlugin(getHtmlConfig('index')),
-		new HtmlWebpackPlugin(getHtmlConfig('login')),
+		new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-login', '登录')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
+		new HtmlWebpackPlugin(getHtmlConfig('result','结果页')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-center','个人信息')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-center-update','修改个人信息')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-pass-update','修改密码')),
 		new CleanWebapckPlugin(['dist']),
 		new MiniCssExtractPlugin({
-	      // Options similar to the same options in webpackOptions.output
-	      // both options are optional
 	      filename: "[name].css",
 	      chunkFilename: "css/[name].css"
-
-
-	      // Options similar to the same options in webpackOptions.output
-	      // both options are optional
-	      // filename: devMode ? '[name].css' : '[name].[hash].css',
-	      // chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
 	    })
 	],
-	// optimization: {
- //        splitChunks: {
-	//         cacheGroups: {
-	//             commons: {  // 抽离自己写的公共代码
-	//                 chunks: "initial",
-	//                 name: "base", // 打包后的文件名，任意命名
-	//                 minChunks: 2,//最小引用2次
-	//                 minSize: 0 // 只要超出0字节就生成一个新包
-	//             },
-	//             vendor: {   // 抽离第三方插件
-	//                 test: /node_modules/,   // 指定是node_modules下的第三方包
-	//                 chunks: 'initial',
-	//                 name: 'vendor',  // 打包后的文件名，任意命名
-	//                 // 设置优先级，防止和自定义的公共代码提取时被覆盖，不进行打包
-	//                 priority: 10
-	//             }
-	//         }
-	//     }
- //    },
-	 optimization: {
-	      splitChunks: {
-	          chunks: 'all', // 只对入口文件处理
-	          cacheGroups: {
-	              vendor: { // split `node_modules`目录下被打包的代码到 `page/vendor.js && .css` 没找到可打包文件的话，则没有。css需要依赖 `ExtractTextPlugin`
-	                  test: /node_modules\//,
-	                  name: 'vendor',
-	                  priority: 10,
-	                  enforce: true
-	              },
-	              common: { // split `common`和`components`目录下被打包的代码到`page/commons.js && .css`
-	                  
-	                  name: 'base',
-	                  priority: 10,
-	                  enforce: true
-	              }
-	          }
-	      }
-	  //     runtimeChunk: {
-	  //         name: 'manifest'
-	  //     }
-	  },
+	optimization: {
+		splitChunks: {
+		    chunks: "async",
+		    minSize: 30000,
+		    minChunks: 1,
+		    maxAsyncRequests: 5,
+		    maxInitialRequests: 3,
+		    name: true,
+		    cacheGroups: {
+		        default: {
+		            minChunks: 2,
+		            priority: -20,
+		            reuseExistingChunk: true
+		        },
+		        vendors: {
+		            test: /[\\/]node_modules[\\/]/,
+		            priority: -10
+		        }
+		    }
+		}
+	},
+
 	module: {
 		rules: [
 			{

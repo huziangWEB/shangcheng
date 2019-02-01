@@ -2,7 +2,7 @@
 * @Author: huziangWEB
 * @Date:   2019-01-20 16:50:22
 * @Last Modified by:   huziangWEB
-* @Last Modified time: 2019-01-22 19:12:09
+* @Last Modified time: 2019-01-25 22:06:04
 */
 .header .logo{
 	position: absolute;
@@ -31,4 +31,16 @@
 	height: 49px;
 	position: absolute;
 	font-weight: normal;
+}
+
+
+/*面包屑导航*/
+.crumb{
+	margin-bottom: 18px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #eee;
+	color: #888;
+	font-size: 14px;
+	border-top: 2px #c60023 solid;
 }

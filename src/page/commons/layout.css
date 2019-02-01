@@ -2,7 +2,7 @@
 * @Author: huziangWEB
 * @Date:   2018-12-01 00:07:07
 * @Last Modified by:   huziangWEB
-* @Last Modified time: 2019-01-20 16:09:30
+* @Last Modified time: 2019-01-27 00:11:21
 */
 /*css reset*/
 *{
@@ -27,11 +27,35 @@ label{
 input[type='checkbox']{
 	cursor: pointer;
 }
+input{
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
 /*定宽布局*/
 .w{
 	width: 1080px;
 	margin: 0 auto;
 	position: relative;
+	overflow: hidden;
+}
+
+
+.panel{
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #fff;
+}
+.panel .panel-title{
+	padding: 10px;
+	font-size: 14px;
+	 color: #666;
+	 font-weight: bold;
+	 border-bottom: 1px #eee solid;
+}
+.panel .panel-body{
+	padding: 10px;
 	overflow: hidden;
 }
 /*全局通用样式*/
@@ -86,6 +110,11 @@ input[type='checkbox']{
 	border-radius: 100%;
 	/*background: url(../../iamge/icon/loading.gif) no-repeat;*/
 	opacity: .6;
+}
+
+.with-nav{
+	width: 950px;
+	margin-left: 130px;
 }
 
 

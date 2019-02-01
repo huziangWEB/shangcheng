@@ -2,11 +2,12 @@
 * @Author: huziangWEB
 * @Date:   2019-01-22 19:22:38
 * @Last Modified by:   huziangWEB
-* @Last Modified time: 2019-01-22 21:33:10
+* @Last Modified time: 2019-01-23 13:26:27
 */
 .nav-side{
 	float:left;
 	width: 130px;
+	min-height: 100px;
 }
 .nav-side .nav-item{
 	line-height: 25px;

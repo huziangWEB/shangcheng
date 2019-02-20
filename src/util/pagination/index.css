@@ -1,0 +1,36 @@
+/*
+* @Author: huziangWEB
+* @Date:   2019-02-17 18:26:13
+* @Last Modified by:   huziangWEB
+* @Last Modified time: 2019-02-18 14:39:21
+*/
+.pg-content{
+	text-align: center;
+	color: #333;
+}
+.pg-content .pg-item{
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 15px;
+	margin: 0 2px;
+	border: 1px #ccc solid;
+	background: #eee;
+	cursor: pointer;
+}
+.pg-content .pg-item.disabled{
+	color: #ccc;
+	background: none;
+	cursor: auto;
+}
+.pg-content .pg-total{
+	margin-left: 10px;
+	background: none;
+	cursor: auto;
+}
+.pg-content .pg-item.active{
+	border: 1px #c60023 solid;
+	background: #c60023;
+	cursor: auto;
+	color: #fff;
+}

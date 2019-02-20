@@ -1,0 +1,113 @@
+/*
+* @Author: huziangWEB
+* @Date:   2019-02-14 13:12:05
+* @Last Modified by:   huziangWEB
+* @Last Modified time: 2019-02-14 14:20:02
+*/
+.keywords-list{
+	float: left;
+	width: 240px;
+	height: 350px;
+	padding: 10px 0;
+	margin-right: 10px;
+	background: #666;
+	color: #fff;
+}
+.keywords-list .keywords-item{
+	padding-left: 10px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 14px;
+}
+.keywords-list .keywords-item .link{
+	margin-right: 8px;
+	color: #fff;
+}
+.keywords-list .keywords-item .link:hover{
+	color: #c60023;
+}
+.keywords-list .keywords-item:hover{
+	background: #999;
+}
+
+
+.banner-con{
+	width: 830px;
+	height: 370px;
+	float: left;
+	background: #eee;
+}
+.banner-con .loading{
+	margin-top: 150px;
+}
+.swiper-container{
+	width: 830px;
+	height: 370px;
+	overflow: hidden;
+}
+.swiper-container a{
+	overflow: hidden;
+}
+.banner-con img{
+	width: 830px;
+	height: 370px;
+	display: block;
+}
+
+
+/* floor */
+.floor-wrap .floor-list{
+	margin-right: -20px;
+	overflow: hidden;
+}
+.floor-wrap .floor-title{
+	height: 50px;
+	line-height: 50px;
+	color: #d58717;
+	font-weight: normal;
+	font-size: 20px;
+	border-bottom: 1px #d58717 solid;
+}
+.floor-wrap:nth-child(2) .floor-title{
+	color: #3b838c;
+	border-bottom: 1px #3b838c solid;
+}
+.floor-wrap:nth-child(3) .floor-title{
+	color: #a93931;
+	border-bottom: 1px #a93931 solid;
+}
+.floor-wrap:nth-child(4) .floor-title{
+	color: #488bad;
+	border-bottom: 1px #488bad solid;
+}
+.floor-wrap:nth-child(5) .floor-title{
+	color: #642663;
+	border-bottom: 1px #642663 solid;
+}
+.floor-wrap .floor-list .floor-item{
+	position: relative;
+	width: 200px;
+	height: 220px;
+	margin: 15px 20px 20px 0;
+	float: left;
+	cursor:pointer;
+	background: #fff;
+}
+.floor-wrap .floor-list .floor-item:hover{
+	box-shadow: 1px 1px 7px #ddd;
+}
+.floor-wrap .floor-list .floor-item .floor-text{
+	position: absolute;
+	top: 12px;
+	left: 20px;
+	font-size: 16px;
+	color: #555;
+}
+.floor-wrap .floor-list .floor-item .floor-img{
+	position: absolute;
+	right:15px;
+	bottom: 10px;
+	width: 80%;
+	height: 75%;
+	border: none;
+}

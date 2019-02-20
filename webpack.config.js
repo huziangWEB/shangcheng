@@ -26,7 +26,10 @@ module.exports = {
 		'result': './src/page/result/index.js',
 		'user-center': './src/page/user-center/index.js',
 		'user-center-update': './src/page/user-center-update/index.js',
-		'user-pass-update': './src/page/user-pass-update/index.js'
+		'user-pass-update': './src/page/user-pass-update/index.js',
+		'list': './src/page/list/index.js',
+		'detail': './src/page/detail/index.js',
+		'cart': './src/page/cart/index.js'
 	},
 	devtool: 'inline-source-map',
 	devServer: {
@@ -34,7 +37,8 @@ module.exports = {
 	},
 	output: {
 		filename: 'js/[name].bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
 	resolve: {
 		alias: {
@@ -55,6 +59,9 @@ module.exports = {
 		new HtmlWebpackPlugin(getHtmlConfig('user-center','个人信息')),
 		new HtmlWebpackPlugin(getHtmlConfig('user-center-update','修改个人信息')),
 		new HtmlWebpackPlugin(getHtmlConfig('user-pass-update','修改密码')),
+		new HtmlWebpackPlugin(getHtmlConfig('list','列表页')),
+		new HtmlWebpackPlugin(getHtmlConfig('detail','商品详情页')),
+		new HtmlWebpackPlugin(getHtmlConfig('cart','购物车')),
 		new CleanWebapckPlugin(['dist']),
 		new MiniCssExtractPlugin({
 	      filename: "[name].css",
